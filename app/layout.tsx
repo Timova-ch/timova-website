@@ -5,9 +5,9 @@ import { Kopfzeile } from '@/components/Kopfzeile';
 import { Fusszeile } from '@/components/Fusszeile';
 import { SITE_URL, istIndexierbar } from '@/lib/site';
 
-const TITEL = 'Timova: Dienstplan und Einsatzplanung aus der Schweiz';
+const TITEL = 'Timova: Dienstplan, Ferien und Teamorganisation aus der Schweiz';
 const BESCHREIBUNG =
-  'Dienstpläne, Abwesenheiten und Ferien an einem Ort statt in Excel, Papier und WhatsApp. Für Schweizer Betriebe mit Schichtbetrieb, Daten in Zürich.';
+  'Dienstplan, Jahresurlaubsplaner, Skills und Teamboard an einem Ort statt in Excel, Papier und WhatsApp. Für Schweizer Betriebe mit Schichtbetrieb, Daten in Zürich.';
 
 export const metadata: Metadata = {
   metadataBase: new URL(SITE_URL),
@@ -23,7 +23,7 @@ export const metadata: Metadata = {
     siteName: 'Timova',
     title: TITEL,
     description: BESCHREIBUNG,
-    images: [{ url: '/og.png', width: 1200, height: 630, alt: 'Timova: Dienstplan und Einsatzplanung' }]
+    images: [{ url: '/og.png', width: 1200, height: 630, alt: 'Timova: Dienstplan, Ferien, Skills und Team an einem Ort' }]
   },
   twitter: { card: 'summary_large_image', title: TITEL, description: BESCHREIBUNG, images: ['/og.png'] },
   icons: {

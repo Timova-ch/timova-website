@@ -32,7 +32,12 @@ Weitere Skripte (brauchen Google Chrome):
 ```bash
 node scripts/og-bild.mjs                                   # public/og.png neu erzeugen
 BASIS=http://localhost:3000 node scripts/screenshots.mjs   # docs/screenshots, prüft Formular
+APP=http://localhost:3000 node scripts/app-screenshots.mjs # Bilder aus der App nach public/bilder
 ```
+
+Die App-Bilder in `public/bilder` stammen aus der lokalen App mit Demo-Daten
+(Muster AG, Standort Nord). Die Website selbst läuft dafür auf einem anderen
+Port (`PORT=3100 npm start`).
 
 ## Umgebungsvariablen
 
@@ -50,19 +55,19 @@ Mindest-Ausfüllzeit (3 s), Rate-Begrenzung je IP (5 in 10 Minuten, je
 Instanz), Prüfung der Herkunft (Origin), serverseitige Validierung. Keine
 Speicherung, Versand über die Resend-API mit Reply-To auf die anfragende Person.
 
-## Prüfung (lokal, 01.10.2026)
+## Prüfung (lokal, 03.10.2026)
 
 Lighthouse 12, Produktions-Build:
 
 | Seite | Gerät | Performance | Barrierefreiheit | Best Practices | SEO |
 |---|---|---|---|---|---|
-| `/` hell | mobil | 99 | 100 | 100 | 100* |
-| `/` hell | Desktop | 100 | 100 | 100 | 100* |
-| `/` dunkel | mobil | 99 | 100 | 100 | 100* |
-| `/` dunkel | Desktop | 100 | 100 | 100 | 100* |
-| `/datenschutz` | mobil | 99 | 100 | 100 | 100* |
+| `/` hell | mobil | 99 | 100 | 100 | 69* |
+| `/` hell | Desktop | 100 | 100 | 100 | 69* |
+| `/` dunkel | mobil | 99 | 100 | 100 | 69* |
+| `/` dunkel | Desktop | 100 | 100 | 100 | 69* |
 
-\* mit `SITE_INDEXIERBAR=true`. Im Auslieferungszustand (noindex) meldet
-Lighthouse bewusst SEO 69 («Seite ist von der Indexierung ausgeschlossen»).
+\* Einziges offenes SEO-Audit ist «Seite ist von der Indexierung ausgeschlossen»
+(noindex, solange `SITE_INDEXIERBAR` nicht `true` ist). Am 01.10.2026 mit
+`SITE_INDEXIERBAR=true` geprüft: SEO 100.
 
 Screenshots hell und dunkel, Desktop und mobil: [`docs/screenshots`](docs/screenshots).

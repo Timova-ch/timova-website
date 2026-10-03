@@ -15,7 +15,22 @@ const FRAGEN: { frage: string; antwort: React.ReactNode }[] = [
   {
     frage: 'Brauchen Mitarbeitende eine App?',
     antwort:
-      'Nein. Timova läuft im Browser und ist für das Handy optimiert. Es muss nichts installiert werden.'
+      'Nein. Timova läuft im Browser, es muss nichts installiert werden. Auf dem Handy sehen Mitarbeitende ihre Dienste, stellen Anträge und tauschen Dienste. Dienstplanung, Ferienplaner und Teamboard sind für den Computer gedacht.'
+  },
+  {
+    frage: 'Berücksichtigt die Planung die Qualifikationen?',
+    antwort:
+      'Ja. Der Autoplaner teilt in einer Abteilung nur Personen ein, die den passenden Skill haben, und plant bei Bedarf zuerst jemanden mit einem verlangten Spezialskill ein. Die Noten von 1 bis 6 dienen der Übersicht und der Planung von Anlernphasen, auf den Autoplaner haben sie keinen Einfluss.'
+  },
+  {
+    frage: 'Wie läuft die Ferienplanung ab?',
+    antwort:
+      'Die Planung schaltet ein Ferienjahr frei, auf Wunsch mit Frist. Mitarbeitende tragen ihre Wünsche selbst ein, Timova zeigt Tage mit zu vielen gleichzeitigen Abwesenheiten. Am Ende übernimmt die Planung die Wünsche mit einem Klick als bewilligte Ferien in den Dienstplan.'
+  },
+  {
+    frage: 'Wer sieht das Teamboard?',
+    antwort:
+      'Alle Mitarbeitenden eines Standorts sehen dessen Teamboard. Pendenzen anlegen und kommentieren können alle; ändern dürfen die Planung und wer die Pendenz angelegt hat. Jeder Standort hat sein eigenes Teamboard, andere Betriebe sehen nichts davon.'
   },
   {
     frage: 'Kann ich meine Daten exportieren?',

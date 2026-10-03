@@ -31,6 +31,13 @@ Bedarf in `components/abschnitte/` anpassen:
 - Pakete: Zeilen je Karte («Ein Standort», «Ein Standort, mehrere Abteilungen», «Support per E-Mail») und das Etikett «Empfohlen» beim Paket Betrieb.
 - Pakete: «Ausgetretene Mitarbeitende zählen nicht mit.»
 - Sicherheit: «Die Trennung ist in der Datenbank selbst verankert.» und «Zwei-Faktor-Anmeldung … für alle anderen Benutzer freiwillig».
+- Abschnitte Teamboard, Skills und Jahresurlaubsplaner sowie die neuen FAQ
+  (Stand 03.10.2026): gegen den Code von timova-app geprüft. Ändert sich dort
+  etwas (z. B. Rechte bei Pendenzen, Einfluss der Skill-Noten auf den
+  Autoplaner, Liste der Kollisionen nur für Admins), Text nachziehen.
+- Handy: Teamboard, Dienstplanung und Ferienplaner sind in der App am Telefon
+  nicht freigegeben (`lib/mobileViewport.ts`), die App ist dort immer dunkel.
+  Die Website sagt das so (FAQ «Brauchen Mitarbeitende eine App?»).
 
 ## Betrieb
 

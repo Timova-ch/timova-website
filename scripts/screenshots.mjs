@@ -32,7 +32,14 @@ async function ganzeSeite(p, pfad, datei) {
     window.scrollTo({ top: 0, behavior: 'instant' });
   });
   await p.waitForLoadState('networkidle');
-  await p.evaluate(() => Promise.all([...document.images].map((i) => i.complete || new Promise((r) => (i.onload = i.onerror = r)))));
+  // Nur sichtbare Bilder abwarten: Die Galerie lädt verborgene Ansichten erst beim Anzeigen.
+  await p.evaluate(() =>
+    Promise.all(
+      [...document.images]
+        .filter((i) => i.checkVisibility())
+        .map((i) => i.complete || new Promise((r) => (i.onload = i.onerror = r)))
+    )
+  );
   await p.screenshot({ path: `${ZIEL}/${datei}`, fullPage: true });
 }
 
@@ -41,7 +48,19 @@ for (const schema of ['light', 'dark']) {
   for (const geraet of ['desktop', 'mobil']) {
     const p = await seite(schema, geraet);
     await ganzeSeite(p, '/', `start-${geraet}-${name}.png`);
-    if (geraet === 'desktop') await ganzeSeite(p, '/impressum', `impressum-${name}.png`);
+    if (geraet === 'desktop') {
+      // Jede Ansicht der Galerie im Hero und die drei Vertiefungen einzeln
+      for (const tab of ['Dienstplan', 'Dashboard', 'Teamboard', 'Ferienplaner']) {
+        await p.getByRole('tab', { name: tab }).click();
+        const panel = p.locator('[role=tabpanel]:not([hidden]) img');
+        await panel.evaluate((i) => i.complete || new Promise((r) => (i.onload = i.onerror = r)));
+        await p.locator('[role=tablist]').locator('xpath=..').screenshot({ path: `${ZIEL}/galerie-${tab.toLowerCase()}-${name}.png` });
+      }
+      for (const id of ['teamboard', 'skills', 'ferienplaner']) {
+        await p.locator(`#${id}`).screenshot({ path: `${ZIEL}/abschnitt-${id}-${name}.png` });
+      }
+      await ganzeSeite(p, '/impressum', `impressum-${name}.png`);
+    }
     if (geraet === 'mobil') {
       await p.goto(BASIS + '/', { waitUntil: 'networkidle' });
       await p.locator('summary[aria-label="Menü"]').click();
