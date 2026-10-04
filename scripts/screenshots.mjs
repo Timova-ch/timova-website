@@ -1,10 +1,12 @@
 // Screenshots der Website in hell/dunkel, Desktop und mobil, nach docs/screenshots.
 // Prüft nebenbei das Formular (Fehler und Erfolg) und meldet Konsolenfehler.
 // Aufruf: Server starten (npm start), dann BASIS=http://localhost:3000 node scripts/screenshots.mjs
+import { mkdirSync } from 'node:fs';
 import { chromium } from 'playwright-core';
 
 const BASIS = process.env.BASIS ?? 'http://localhost:3000';
 const ZIEL = 'docs/screenshots';
+mkdirSync(ZIEL, { recursive: true });
 const browser = await chromium.launch({ channel: 'chrome' });
 const probleme = [];
 

@@ -70,4 +70,5 @@ Lighthouse 12, Produktions-Build:
 (noindex, solange `SITE_INDEXIERBAR` nicht `true` ist). Am 01.10.2026 mit
 `SITE_INDEXIERBAR=true` geprüft: SEO 100.
 
-Screenshots hell und dunkel, Desktop und mobil: [`docs/screenshots`](docs/screenshots).
+Screenshots hell und dunkel, Desktop und mobil erzeugt `scripts/screenshots.mjs`
+nach `docs/screenshots`. Der Ordner bleibt lokal und ist nicht im Repo (`.gitignore`).
