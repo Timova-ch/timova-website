@@ -1,0 +1,44 @@
+{
+  "name": "timova-website",
+  "private": true,
+  "version": "1.0.0",
+  "engines": {
+    "node": ">=22"
+  },
+  "scripts": {
+    "dev": "next dev",
+    "build": "next build",
+    "start": "next start",
+    "lint": "eslint .",
+    "typecheck": "tsc --noEmit",
+    "test": "vitest run",
+    "screenshots": "node scripts/screenshots.mjs"
+  },
+  "allowScripts": {
+    "esbuild": false,
+    "fsevents": false,
+    "unrs-resolver": false,
+    "sharp": true
+  },
+  "dependencies": {
+    "lucide-react": "^1.49.0",
+    "marked": "^18.0.14",
+    "next": "^15.5.27",
+    "react": "^19.3.0",
+    "react-dom": "^19.3.0"
+  },
+  "devDependencies": {
+    "@eslint/eslintrc": "^3.3.7",
+    "@types/node": "^22.20.4",
+    "@types/react": "^19.3.0",
+    "@types/react-dom": "^19.3.0",
+    "autoprefixer": "^10.6.1",
+    "eslint": "^9.39.5",
+    "eslint-config-next": "^15.5.27",
+    "playwright-core": "^1.63.0",
+    "postcss": "^8.5.28",
+    "tailwindcss": "^3.4.19",
+    "typescript": "^5.9.3",
+    "vitest": "^5.0.3"
+  }
+}

@@ -8,3 +8,5 @@ next-env.d.ts
 .vercel
 .DS_Store
 lighthouse-*.json
+# Screenshots der Website: nur lokal, erzeugt mit scripts/screenshots.mjs
+docs/screenshots/
